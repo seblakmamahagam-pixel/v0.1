@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seblak Mamah Agam</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: linear-gradient(
+        to bottom,
+        #ffffff 0%,   /* atas */
+        #ececec 45%,  /* tengah */
+        #d5d5d5 100%  /* bawah */
+      );
+      color: #333;
+    }
+    header {
+      background: #ff4d4d;
+      color: white;
+      padding: 8px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+    nav a {
+      font-size: 0.8em;
+      color: #feffa3;
+      text-decoration: none;
+      margin: 0 4px;
+      font-weight: bold;
+      position: relative;
+      transition: 0.3s;
+      outline: none;
+    }
+    nav a:hover {
+      text-decoration: ;
+    }
+    nav a:focus {
+      outline: none;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: white;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .hero {
+      background: url('https://i.imgur.com/KoXYOId.png') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    .hero h2, .hero p, .hero a {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      margin-bottom: 20px;
+      font-size: 0.8em;
+    }
+    .hero a {
+      background: #ff4d4d;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .hero a:hover {
+      background: #ff1a1a;
+    }
+    section {
+      padding: 12px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .menu {
+      text-align: center;
+    }
+    .menu h2 {
+      margin-bottom: 15px;
+      font-size: 1.65em;
+      color: #ff4d4d;
+    }
+    .menu-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .menu-item {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 6px 10px rgba(0,0,0,0.25);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    .menu-item:hover {
+      transform: translateY(-5px);
+    }
+    .menu-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .menu-item h3 {
+      color: #ff4d4d;
+      margin: 5px;
+      font-size: 1.0em;
+    }
+    .menu-item p {
+      margin: 0 15px 5px;
+      font-size: 0.7em;
+    }
+    .menu-item button {
+      margin: 10px 15px 12px;
+      background: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .menu-item button:hover {
+      background: #ff1a1a;
+    }
+    .catering {
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #757575;
+      color: white;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Seblak Mamah Agam</h1>
+    <nav>
+      <a href="#menu">MENU</a>
+      <a href="#p">|</a>
+      <a href="#ulasan">ULASAN</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <h2>Seblak Lezat Bikin Nagih!</h2>
+    <p>Rasakan sensasi gurih, asin, manis, dan pedas langsung di lidahmu 🍜🔥</p>
+    <a style="font-size: 14px;" href="#menu">Beli Sekarang</a>
+  </section>
+  <hr style="border: none; height: 2px; background-color: #8a8a8a; width: 100%; margin: 25px auto;">
+  <div id="statusToko" 
+     style="text-align:center; font-weight:700; font-size:15px; margin-top:5px;">
+</div>
+    <div id="jam" style="font-size: 12px; font-weight: 700; text-align: center; margin: 1px 0;"></div>
+    <hr id="menu" style="border: none; height: 2px; background-color: #8a8a8a; width: 100%; margin: 25px auto;">
+  <section class="menu">
+    <h2>Menu Seblak</h2>
+    <div class="menu-container">
+      <div class="menu-item">
+        <img src="https://i.imgur.com/KoXYOId.png">
+        <h3>Seblak Biasa</h3>
+        <p>Kerupuk Seblak, Sayuran, Telur, Dan Makaroni/Mie.</p>
+        <button>BELI - Rp.8.000</button>
+      </div>
+      <div class="menu-item">
+        <img src="https://i.imgur.com/KoXYOId.png">
+        <h3>Seblak Prasmanan</h3>
+        <p>Pilihannya:<br>Kerupuk Seblak, Makaroni, Mie, Cuanki Lidah, Telur, Kerupuk Tangga Rainbow, Dumpling Keju, Cikuwa Mini, Sosis, Baso, Jamur Enoki, Sayuran, Dll.</p>
+        <button>BELI - Mulai Dari Rp.7.000</button>
+      </div>
+    </div>
+  </section>
+  <hr style="border: none; height: 2px; background-color: #ff5656; width: 93%; margin: 25px auto;">
+  <section class="menu">
+      <h2>Menu Dimsum</h2>
+    <div class="menu-container">
+      <div class="menu-item">
+        <img src="https://i.imgur.com/KoXYOId.png">
+        <h3>Dimsum Goreng</h3>
+        <p>Dimsum Toping Pedas, Toping Sosis, Kumis Naga, SmokeBeef, Mozzarella, Mix, Dll.</p>
+        <button>BELI - Rp.5.000/3pcs</button>
+      </div>
+      <div class="menu-item">
+        <img src="https://i.imgur.com/KoXYOId.png">
+        <h3>Dimsum Kukus</h3>
+        <p>Dimsum Toping Pedas, Toping Sosis, Kumis Naga, SmokeBeef, Mozzarella, Mix, Dll.</p>
+        <button>BELI - Rp.5.000/3pcs</button>
+      </div>
+      <div class="menu-item">
+        <img src="https://i.imgur.com/9eIe6KV.png">
+        <h3>Dimsum Frozen</h3>
+        <p>Dimsum Toping Pedas, Toping Sosis, Kumis Naga, SmokeBeef, Mozzarella, Mix, Dll.</p>
+        <button>BELI - Mulai Dari Rp.23.000</button>
+      </div>
+    </div>
+    </section>
+    <hr style="border: none; height: 2px; background-color: #ff5656; width: 93%; margin: 25px auto;">
+    <section class="menu">
+      <h2>Menu Minuman</h2>
+    <div class="menu-container">
+      <div class="menu-item">
+        <img src="https://i.imgur.com/KoXYOId.png">
+        <h3>Es Teh</h3>
+        <p>Es Teh Solo</p>
+        <button>BELI - Rp.3.000 & Rp.5.000</button>
+      </div>
+      <div class="menu-item">
+        <img src="https://i.imgur.com/KoXYOId.png">
+        <h3>Es Cappucino & Good Day</h3>
+        <p>Es Cappucino Kopi, Good Day Freeze, Good Day Mocacinno, Good Day Chococinno, Dll.</p>
+        <button>BELI - Rp.5.000</button>
+      </div>
+      <div class="menu-item">
+        <img src="https://i.imgur.com/vcKUQz0.png">
+        <h3>Pop Ice</h3>
+        <p>Coklat, Taro, Strawbery, Durian, Cream Cheese, Mangga, Permen Karet, Dll.<br>(Di Blender)</p>
+        <button>BELI - Rp.4.000</button>
+      </div>
+    </div>
+    </section>
+  <hr id="ulasan" style="border: none; height: 2px; background-color: #ff5656; width: 93%; margin: 25px auto;">
+  <section class="reviews" style="margin-top: 50px; text-align: center;">
+  <h2 style="font-size: 20px; margin-bottom: 20px;">📝 Ulasan Terbaru Pembeli 📝</h2>
+  <div style="display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 0 auto;">
+    
+    <div style="background-color: #fff0d0; border-radius: 10px; padding: 15px; text-align: left; box-shadow: 0 3px 6px rgba(0,0,0,0.3);">
+      <h3 style="margin: 0; font-size: 15px;">👤 Furina</h3>
+      <small style="color: gray; font-size: 11px;">19 Oktober 2025</small>
+      <p style="margin-top: 10px; font-size: 12px;">Seblaknya enak banget, pedasnya pas! 😋</p>
+    </div>
+
+    <div style="background-color: #fff0d0; border-radius: 10px; padding: 15px; text-align: left; box-shadow: 0 3px 6px rgba(0,0,0,0.3);">
+      <h3 style="margin: 0; font-size: 15px;">👤 Skirk</h3>
+      <small style="color: gray; font-size: 11px;">15 Oktober 2025</small>
+      <p style="margin-top: 10px; font-size: 12px;">Porsi banyak, harga bersahabat. Mantap pokoknya!</p>
+    </div>
+    
+    <div style="background-color: #fff0d0; border-radius: 10px; padding: 15px; text-align: left; box-shadow: 0 3px 6px rgba(0,0,0,0.3);">
+      <h3 style="margin: 0; font-size: 15px;">👤 Mengdut</h3>
+      <small style="color: gray; font-size: 11px;">13 Oktober 2025</small>
+      <p style="margin-top: 10px; font-size: 12px;">Langganan terus deh, rasanya enak bgt</p>
+    </div>
+
+  </div>
+</section>
+  <section id="review" class="review" style="text-align:center; padding:40px 20px;">
+  <h2 style="font-size: 18px;">Berikan Ulasanmu!</h2>
+  <p style="font-size: 14px;">Kami senang mendengar pendapatmu</p>
+  <form id="waForm" style="max-width:400px; margin:auto; text-align:left;">
+    <label style="font-size: 14px;" for="name">Nama:</label><br>
+    <input type="text" id="name" name="name" placeholder="Masukkan nama kamu" required
+      style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; margin-bottom:15px;">
+    <label style="font-size: 14px;" for="message">Ulasan:</label><br>
+    <textarea id="message" name="message" rows="4" placeholder="Tulis ulasan kamu" required
+      style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; margin-bottom:15px;"></textarea>
+    <button type="submit" 
+      style="background:#25D366; color:white; border:none; padding:10px 20px; border-radius:8px; cursor:pointer; font-size: 10px;">
+      KIRIM ULASAN<br>(Via WhatsApp)
+    </button>
+    <p style="color: #767676; font-size: 9px;"> <br>Catatan: Setelah mengirim ulasan, tunggu beberapa jam untuk menampilkan ulasan-mu di web ini. Tapi ulasan yang melanggar hukum, tidak akan di tampilkan </p>
+  </form>
+</section>
+<hr style="border: none; height: 2px; background-color: #ff5656; width: 93%; margin: 25px auto;">
+  <section class="catering">
+    <h2 style="font-size: 18px;">Terima Catering</h2>
+    <p style="font-size: 14px;">Kami menyediakan layanan catering rumahan dengan menu variatif dan cita rasa khas. Cocok untuk acara keluarga, arisan, hingga kegiatan kantor.</p>
+  </section>
+  <script>
+      function updateJam() {
+    const now = new Date();
+    const jam = String(now.getHours()).padStart(2, '0');
+    const menit = String(now.getMinutes()).padStart(2, '0');
+    const detik = String(now.getSeconds()).padStart(2, '0');
+    document.getElementById("jam").innerText = "🕒 " + jam + ":" + menit + ":" + detik + " 🕒";
+    const jamBuka = 9;
+    const jamTutup = 22;
+    const statusEl = document.getElementById("statusToko");
+    if (now.getHours() >= jamBuka && now.getHours() < jamTutup) {
+      statusEl.innerHTML = "✅ <span style='color:green;'>Toko Buka</span> ✅<br>(09:00 - 22:00)";
+    } else {
+      statusEl.innerHTML = "❌ <span style='color:red;'>Toko Tutup</span> ❌<br>(Buka Pukul 09:00)";
+    }
+  }
+  setInterval(updateJam, 1000);
+  updateJam();
+      
+      document.getElementById("waForm").addEventListener("submit", function(e) {
+    e.preventDefault(); 
+    const name = document.getElementById("name").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const phoneNumber = "6285771194795"; 
+    const text = `*Rating Seblak Mamah Agam*%0ANama: ${name}%0AUlasan: ${message}`;
+    const url = `https://wa.me/${phoneNumber}?text=${text}`;
+    window.open(url, "_blank");
+  });
+  </script>
+  <footer>
+    <p style="color: #d1d1d1; font-size: 9px;">Built for Seblak Mamah Agam | Beta Test v0.1<br>Unauthorized copying or reproduction is prohibited</p>
+    <p style="font-size: 12px;">© 2025 Seblak Mamah Agam | AgodZz</p>
+  </footer>
+</body>
+</html>
