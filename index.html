@@ -170,9 +170,85 @@
       color: white;
       margin-top: 50px;
     }
+    .loader-overlay {
+    position: fixed;
+    inset: 0;
+    background: #e3e3e3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+  }
+  .loader-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .loader-title {
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .spinner {
+    width: 46px;
+    height: 46px;
+    border: 5px solid #f2f2f2;
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    margin-bottom: 15px;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .content {
+    opacity: 0;
+    text-align: center;
+    padding: 60px 20px;
+    transition: opacity 0.5s ease;
+  }
+  .content.visible {
+    opacity: 1;
+  }
+  .map-button {
+    position: fixed;
+    bottom: 20px;
+    left: 12px;
+    z-index: 999;
+    background: #feffa3;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.344);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .map-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  }
+  .map-button img {
+    width: 32px;
+    height: 32px;
+  }
   </style>
 </head>
 <body>
+  <div id="loader" class="loader-overlay">
+    <div class="spinner"></div>
+    <div class="loader-title">Seblak Mamah Agam<br>Sedang menyiapkan Menu untukmu..</div>
+  </div>
+  <a href="https://maps.app.goo.gl/utWsHBSY4Yjvai7Q6" 
+   target="_blank" 
+   class="map-button" 
+   title="Lokasi Seblak Mamah Agam">
+  <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" />
+</a>
   <header>
     <h1>Seblak Mamah Agam</h1>
     <nav>
@@ -277,12 +353,12 @@
   <section class="reviews" style="margin-top: 50px; text-align: center;">
   <h2 style="font-size: 20px; margin-bottom: 20px;">📝 Ulasan Terbaru Pembeli 📝</h2>
   <div style="display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 0 auto;">
-
-     <div style="background-color: #fff0d0; border-radius: 10px; padding: 15px; text-align: left; box-shadow: 0 3px 6px rgba(0,0,0,0.3);">
+    
+    <div style="background-color: #fff0d0; border-radius: 10px; padding: 15px; text-align: left; box-shadow: 0 3px 6px rgba(0,0,0,0.3);">
       <h3 style="margin: 0; font-size: 15px;">👤 Bu Isma</h3>
       <small style="color: gray; font-size: 11px;">16 Oktober 2025</small>
       <p style="margin-top: 10px; font-size: 12px;">Rasanya pas, dan porsi melimpah</p>
-     </div>
+    </div>
     
     <div style="background-color: #fff0d0; border-radius: 10px; padding: 15px; text-align: left; box-shadow: 0 3px 6px rgba(0,0,0,0.3);">
       <h3 style="margin: 0; font-size: 15px;">👤 Shafa</h3>
@@ -354,9 +430,17 @@
     const url = `https://wa.me/${phoneNumber}?text=${text}`;
     window.open(url, "_blank");
   });
+  
+  const durasiLoading = 1900;
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("loader").classList.add("hidden");
+        document.getElementById("content").classList.add("visible");
+      }, durasiLoading);
+    });
   </script>
   <footer>
-    <p style="color: #d1d1d1; font-size: 9px;">Built for Seblak Mamah Agam | Beta v0.3<br>Unauthorized copying or reproduction is prohibited</p>
+    <p style="color: #d1d1d1; font-size: 9px;">Built for Seblak Mamah Agam | Beta v0.4<br>Unauthorized copying or reproduction is prohibited</p>
     <p style="font-size: 12px;">© 2025 Seblak Mamah Agam | AgodZz</p>
   </footer>
 </body>
