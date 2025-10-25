@@ -40,7 +40,7 @@
       font-size: 0.8em;
       color: #feffa3;
       text-decoration: none;
-      margin: 0 4px;
+      margin: 0 3px;
       font-weight: bold;
       position: relative;
       transition: 0.3s;
@@ -219,7 +219,7 @@
     bottom: 20px;
     left: 12px;
     z-index: 999;
-    background: #feffa3;
+    background: #a3fffe;
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0,0,0,0.344);
     width: 48px;
@@ -237,12 +237,89 @@
     width: 32px;
     height: 32px;
   }
+  .info-btn {
+      position: fixed;
+      bottom: 80px;
+      left: 11px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      z-index: 1000;
+    }
+    .info-btn:hover {
+      transform: scale(1.1);
+    }
+    .info-btn img {
+      width: 34px;
+      height: 34px;
+    }
+    .info-popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    .info-content {
+      background: white;
+      padding: 20px 25px;
+      border-radius: 12px;
+      max-width: 350px;
+      text-align: left;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      animation: popupFade 0.3s ease;
+    }
+    @keyframes popupFade {
+      from {opacity: 0; transform: scale(0.8);}
+      to {opacity: 1; transform: scale(1);}
+    }
+    .info-content h3 {
+      margin-top: 0;
+      color: #ff4d4d;
+    }
+    .info-content button {
+      background:#ff4d4d;
+      color:white;
+      border:none;
+      padding:8px 14px;
+      border-radius:8px;
+      cursor:pointer;
+      margin-top:10px;
+    }
+    .info-content button:hover {
+      background:#e63939;
+    }
   </style>
 </head>
 <body>
   <div id="loader" class="loader-overlay">
     <div class="spinner"></div>
-    <div class="loader-title">Seblak Mamah Agam<br>Sedang menyiapkan Menu untukmu..</div>
+    <div class="loader-title">Seblak Mamah Agam<br>Sedang Memuat Website</div>
+  </div>
+  <div class="info-btn" onclick="toggleInfo()">
+    <img src="https://i.imgur.com/3dvIZLn.png" />
+  </div>
+  <div id="infoPopup" class="info-popup">
+    <div class="info-content">
+      <h3>📢 Informasi</h3>
+      <p><strong>Seblak Mamah Agam</strong> Akan tersedia di GoFood nanti !<br>‎ </p>
+      <p>✨ <b>Update Web [v0.5]</b></p>
+      <ul style="margin-left: 18px; margin-top: 5px;">
+        <li>Informasi tentang berapa orang yang telah membeli.</li>
+        <li>Tombol baru untuk melihat informasi dan update web</li>
+      </ul>
+      <button onclick="toggleInfo()">Tutup</button>
+    </div>
   </div>
   <a href="https://maps.app.goo.gl/utWsHBSY4Yjvai7Q6" 
    target="_blank" 
@@ -261,6 +338,9 @@
   <section class="hero">
     <h2>Seblak Lezat Bikin Nagih!</h2>
     <p>Rasakan sensasi gurih, asin, manis, dan pedas langsung di lidahmu 🍜🔥</p>
+    <p style="text-align: center; font-size: 0.7rem; color: #ffffff; margin-top: 10px;">
+  Sudah <strong>37 Orang</strong> pernah membeli.<br>Dan <strong>16 Orang</strong> kembali membeli karena ketagihan!
+</p>
     <a style="font-size: 14px;" href="#menu">Beli Sekarang</a>
   </section>
   <hr style="border: none; height: 2px; background-color: #8a8a8a; width: 100%; margin: 25px auto;">
@@ -354,7 +434,7 @@
   <section class="reviews" style="margin-top: 50px; text-align: center;">
   <h2 style="font-size: 20px; margin-bottom: 20px;">📝 Ulasan Terbaru Pembeli 📝</h2>
   <div style="display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 0 auto;">
-
+    
     <div style="background-color: #fff0d0; border-radius: 10px; padding: 15px; text-align: left; box-shadow: 0 3px 6px rgba(0,0,0,0.3);">
       <h3 style="margin: 0; font-size: 15px;">👤 Mmh arsha</h3>
       <small style="color: gray; font-size: 11px;">23 Oktober 2025</small>
@@ -438,16 +518,21 @@
     window.open(url, "_blank");
   });
   
-  const durasiLoading = 670;
+  const durasiLoading = 500;
     window.addEventListener("load", () => {
       setTimeout(() => {
         document.getElementById("loader").classList.add("hidden");
         document.getElementById("content").classList.add("visible");
       }, durasiLoading);
     });
+    
+    function toggleInfo(){
+      const popup = document.getElementById('infoPopup');
+      popup.style.display = (popup.style.display === 'flex') ? 'none' : 'flex';
+    }
   </script>
   <footer>
-    <p style="color: #d1d1d1; font-size: 9px;">Built for Seblak Mamah Agam | Beta v0.4<br>Unauthorized copying or reproduction is prohibited</p>
+    <p style="color: #d1d1d1; font-size: 9px;">Built for Seblak Mamah Agam | Beta v0.5<br>Unauthorized copying or reproduction is prohibited</p>
     <p style="font-size: 12px;">© 2025 Seblak Mamah Agam | AgodZz</p>
   </footer>
 </body>
